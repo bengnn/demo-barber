@@ -5,13 +5,13 @@ footer { text-align: center; padding: 20px; background-color: #222; color: #fff;
 /* Bandeau image */
 .bandeau-images img {
   width: 100%;
-  height: 100px;       /* Ajuste la hauteur selon ton style */
+  height: 25px;       /* Ajuste la hauteur selon ton style */
   object-fit: cover;   /* Important : coupe proprement l'image */
   display: block;
 }
 .top-bar h1 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Halo Handletter', sans-serif;
   font-size: 100px; /* augmente ou diminue comme tu veux */
   font-weight: 700; /* gras */
-  letter-spacing: 20px; /* espace entre les lettres si tu veux */
+  letter-spacing: 100px; /* espace entre les lettres si tu veux */
 }
