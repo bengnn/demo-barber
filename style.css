@@ -13,5 +13,5 @@ footer { text-align: center; padding: 20px; background-color: #222; color: #fff;
   font-family: 'Poppins', sans-serif;
   font-size: 100px; /* augmente ou diminue comme tu veux */
   font-weight: 700; /* gras */
-  letter-spacing: 5px; /* espace entre les lettres si tu veux */
+  letter-spacing: 20px; /* espace entre les lettres si tu veux */
 }
