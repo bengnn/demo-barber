@@ -2,4 +2,10 @@ body { font-family: Arial, sans-serif; background-color: #fff; color: #333; }
 header { background-color: #222; color: #fff; padding: 20px; text-align: center; }
 section { padding: 40px; }
 footer { text-align: center; padding: 20px; background-color: #222; color: #fff; }
-
+/* Bandeau image */
+.banner-image img {
+  width: 100%;
+  height: 350px;       /* Ajuste la hauteur selon ton style */
+  object-fit: cover;   /* Important : coupe proprement l'image */
+  display: block;
+}
