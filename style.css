@@ -9,3 +9,9 @@ footer { text-align: center; padding: 20px; background-color: #222; color: #fff;
   object-fit: cover;   /* Important : coupe proprement l'image */
   display: block;
 }
+.top-bar h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px; /* augmente ou diminue comme tu veux */
+  font-weight: 700; /* gras */
+  letter-spacing: 2px; /* espace entre les lettres si tu veux */
+}
