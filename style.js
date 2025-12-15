@@ -1,30 +1,42 @@
-const sections = document.querySelectorAll(".section-anchor");
-const navLinks = document.querySelectorAll(".nav-link");
-const reveals = document.querySelectorAll(".reveal");
+document.addEventListener("DOMContentLoaded", () => {
 
-function onScroll() {
-  const scrollPos = window.scrollY + window.innerHeight / 3;
+  const navLinks = document.querySelectorAll(".nav-link");
+  const sections = document.querySelectorAll(".section-anchor");
+  const reveals = document.querySelectorAll(".reveal");
 
-  sections.forEach(section => {
-    const top = section.offsetTop;
-    const height = section.offsetHeight;
-    const id = section.getAttribute("id");
+  /* ===== MENU ACTIF AU SCROLL ===== */
+  const observerOptions = {
+    root: null,
+    rootMargin: "-40% 0px -40% 0px",
+    threshold: 0
+  };
 
-    if (scrollPos >= top && scrollPos < top + height) {
-      navLinks.forEach(link => link.classList.remove("active"));
-      const activeLink = document.querySelector(
-        `.nav-link[href="#${id}"]`
-      );
-      if (activeLink) activeLink.classList.add("active");
-    }
-  });
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => link.classList.remove("active"));
+        const id = entry.target.getAttribute("id");
+        const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+        if (activeLink) activeLink.classList.add("active");
+      }
+    });
+  }, observerOptions);
 
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 120) {
-      el.classList.add("visible");
-    }
-  });
-}
+  sections.forEach(section => sectionObserver.observe(section));
+
+  /* ===== FADE IN AU SCROLL ===== */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => revealObserver.observe(el));
+
+});
+
 
 window.addEventListener("scroll", onScroll);
 onScroll();
