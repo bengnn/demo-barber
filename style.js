@@ -3,7 +3,7 @@ const navLinks = document.querySelectorAll(".nav-link");
 const reveals = document.querySelectorAll(".reveal");
 
 function onScroll() {
-  let scrollPos = window.scrollY + window.innerHeight / 3;
+  const scrollPos = window.scrollY + window.innerHeight / 3;
 
   sections.forEach(section => {
     const top = section.offsetTop;
@@ -12,7 +12,9 @@ function onScroll() {
 
     if (scrollPos >= top && scrollPos < top + height) {
       navLinks.forEach(link => link.classList.remove("active"));
-      const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+      const activeLink = document.querySelector(
+        `.nav-link[href="#${id}"]`
+      );
       if (activeLink) activeLink.classList.add("active");
     }
   });
@@ -26,3 +28,4 @@ function onScroll() {
 
 window.addEventListener("scroll", onScroll);
 onScroll();
+
