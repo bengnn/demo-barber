@@ -8,37 +8,80 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
+<!-- NAVIGATION -->
 <nav class="navbar">
-  <div class="logo">BARBERSHOP</div>
   <ul>
-    <li><a href="index.html" class="active">Accueil</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="booking.html">Tarifs & RDV</a></li>
+    <li><a href="#home" class="nav-link active">Accueil</a></li>
+    <li><a href="#services" class="nav-link">Services</a></li>
+    <li><a href="#booking" class="nav-link">Tarifs & RDV</a></li>
   </ul>
 </nav>
 
-<section class="bandeau">
-  <img src="images/bandeau.jpg" alt="Barber shop">
-  <div class="bandeau-text">
-    <h1>Style & Precision</h1>
-    <p>Coiffure. Barbe. Expérience.</p>
-    <a href="booking.html" class="btn">Prendre rendez-vous</a>
+<!-- HERO / ACCUEIL -->
+<section id="home" class="hero">
+  <div class="overlay"></div>
+  <h1>BARBERSHOP</h1>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section reveal">
+  <h2>Nos services</h2>
+
+  <div class="cards">
+    <div class="card">
+      <img src="images/coupe.jpg" alt="">
+      <h3>Coupe</h3>
+      <p>Coupes modernes et classiques adaptées à votre style.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/barbe.jpg" alt="">
+      <h3>Barbe</h3>
+      <p>Taille précise, rasage et finitions professionnelles.</p>
+    </div>
+
+    <div class="card">
+      <img src="images/coupe.jpg" alt="">
+      <h3>Coupe + Barbe</h3>
+      <p>Prestation complète pour un look impeccable.</p>
+    </div>
   </div>
 </section>
 
-<section class="intro">
-  <h2>Un barbier moderne</h2>
-  <p>
-    Nous proposons des coupes précises et des tailles de barbe dans un cadre
-    sobre et élégant. Qualité, ponctualité et savoir-faire.
+<!-- TARIFS & RDV -->
+<section id="booking" class="section dark reveal">
+  <h2>Tarifs & Rendez-vous</h2>
+
+  <div class="cards">
+    <div class="card price">
+      <h3>Coupe</h3>
+      <p class="amount">20€</p>
+    </div>
+
+    <div class="card price">
+      <h3>Barbe</h3>
+      <p class="amount">15€</p>
+    </div>
+
+    <div class="card price">
+      <h3>Coupe + Barbe</h3>
+      <p class="amount">30€</p>
+    </div>
+  </div>
+
+  <p class="note">
+    Prise de rendez-vous par téléphone ou module en ligne intégrable.
   </p>
 </section>
 
 <footer>
-  <p>© 2025 Barbershop — Tous droits réservés</p>
+  © 2025 Barbershop
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
+
