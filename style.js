@@ -1,23 +1,24 @@
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll(".section-anchor");
 const navLinks = document.querySelectorAll(".nav-link");
 const reveals = document.querySelectorAll(".reveal");
 
 function onScroll() {
-  let scrollPos = window.scrollY + 200;
+  let scrollPos = window.scrollY + window.innerHeight / 3;
 
   sections.forEach(section => {
-    if (
-      scrollPos >= section.offsetTop &&
-      scrollPos < section.offsetTop + section.offsetHeight
-    ) {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute("id");
+
+    if (scrollPos >= top && scrollPos < top + height) {
       navLinks.forEach(link => link.classList.remove("active"));
-      const id = section.getAttribute("id");
-      document.querySelector(`a[href="#${id}"]`).classList.add("active");
+      const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+      if (activeLink) activeLink.classList.add("active");
     }
   });
 
   reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+    if (el.getBoundingClientRect().top < window.innerHeight - 120) {
       el.classList.add("visible");
     }
   });
@@ -25,4 +26,3 @@ function onScroll() {
 
 window.addEventListener("scroll", onScroll);
 onScroll();
-
