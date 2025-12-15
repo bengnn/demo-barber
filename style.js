@@ -1,15 +1,28 @@
-const reveals = document.querySelectorAll('.reveal');
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".nav-link");
+const reveals = document.querySelectorAll(".reveal");
 
-function revealOnScroll() {
-  for (let el of reveals) {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
+function onScroll() {
+  let scrollPos = window.scrollY + 200;
 
-    if (elementTop < windowHeight - 100) {
-      el.classList.add('visible');
+  sections.forEach(section => {
+    if (
+      scrollPos >= section.offsetTop &&
+      scrollPos < section.offsetTop + section.offsetHeight
+    ) {
+      navLinks.forEach(link => link.classList.remove("active"));
+      const id = section.getAttribute("id");
+      document.querySelector(`a[href="#${id}"]`).classList.add("active");
     }
-  }
+  });
+
+  reveals.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+      el.classList.add("visible");
+    }
+  });
 }
 
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll();
+window.addEventListener("scroll", onScroll);
+onScroll();
+
