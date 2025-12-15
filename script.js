@@ -5,12 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const reveals = document.querySelectorAll(".reveal");
 
   /* ===== MENU ACTIF AU SCROLL ===== */
-  const observerOptions = {
-    root: null,
-    rootMargin: "-40% 0px -40% 0px",
-    threshold: 0
-  };
-
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -20,7 +14,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (activeLink) activeLink.classList.add("active");
       }
     });
-  }, observerOptions);
+  }, {
+    rootMargin: "-40% 0px -40% 0px"
+  });
 
   sections.forEach(section => sectionObserver.observe(section));
 
@@ -36,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   reveals.forEach(el => revealObserver.observe(el));
 
 });
+
 
 
 window.addEventListener("scroll", onScroll);
