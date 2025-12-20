@@ -33,13 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
-
-window.addEventListener("scroll", onScroll);
-onScroll();
-
 const modal = document.getElementById("bookingModal");
 const serviceInput = document.getElementById("selectedService");
+const closeBtn = document.querySelector(".close");
 
 /* CLICK SUR TARIFS */
 document.querySelectorAll(".card.price").forEach(card => {
