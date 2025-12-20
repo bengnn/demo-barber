@@ -53,7 +53,7 @@ window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
 /* FAKE CONFIRMATION */
 document.getElementById("bookingForm").addEventListener("submit", e => {
   e.preventDefault();
-  alert("Demande de rendez-vous envoyée !");
+  alert("Rendez-vous confirmé !");
   modal.style.display = "none";
 });
 });
