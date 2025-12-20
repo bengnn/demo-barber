@@ -38,3 +38,26 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("scroll", onScroll);
 onScroll();
 
+const modal = document.getElementById("bookingModal");
+const serviceInput = document.getElementById("selectedService");
+
+/* CLICK SUR TARIFS */
+document.querySelectorAll(".card.price").forEach(card => {
+  card.addEventListener("click", () => {
+    const service = card.getAttribute("data-service");
+    serviceInput.value = service;
+    modal.style.display = "block";
+  });
+});
+
+
+/* FERMER */
+closeBtn.onclick = () => modal.style.display = "none";
+window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
+
+/* FAKE CONFIRMATION */
+document.getElementById("bookingForm").addEventListener("submit", e => {
+  e.preventDefault();
+  alert("Demande de rendez-vous envoyée !");
+  modal.style.display = "none";
+});
