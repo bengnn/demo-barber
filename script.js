@@ -51,9 +51,17 @@ closeBtn.onclick = () => modal.style.display = "none";
 window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
 
 /* FAKE CONFIRMATION */
-document.getElementById("bookingForm").addEventListener("submit", e => {
+const successModal = document.getElementById("successModal");
+const closeSuccess = document.getElementById("closeSuccess");
+
+form.addEventListener("submit", e => {
   e.preventDefault();
-  alert("Rendez-vous confirmé !");
   modal.style.display = "none";
+  successModal.style.display = "block";
 });
+
+closeSuccess.addEventListener("click", () => {
+  successModal.style.display = "none";
+});
+
 });
