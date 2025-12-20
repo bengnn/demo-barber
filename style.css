@@ -184,3 +184,20 @@ footer {
   font-family: 'Poppins', sans-serif;
   border: 1px solid #ccc;
 }
+.modal-content.success {
+  text-align: center;
+}
+
+.modal-content.success h2 {
+  color: #111;
+  margin-bottom: 15px;
+}
+
+.modal-content.success button {
+  background: #111;
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  margin-top: 20px;
+}
