@@ -37,8 +37,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".card.price").forEach(card => {
     card.addEventListener("click", () => {
-      serviceInput.value = card.dataset.service;
-      modal.style.display = "block";
+
+  form.reset();                 // 🔥 reset tout
+  confirmBtn.disabled = true;   // bouton inactif
+  confirmBtn.classList.remove("enabled");
+
+  serviceInput.value = card.dataset.service;
+  modal.style.display = "block";
     });
   });
 
@@ -65,32 +70,27 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
 const confirmBtn = document.getElementById("confirmBtn");
-const inputs = document.querySelectorAll(
-  "#bookingForm input, #bookingForm select"
-);
+const form = document.getElementById("bookingForm");
 
 function checkForm() {
+  const requiredFields = form.querySelectorAll("input, select");
   let allFilled = true;
 
-  inputs.forEach(input => {
-    if (!input.value) {
-      allFilled = false;
-    }
+  requiredFields.forEach(field => {
+    if (!field.value) allFilled = false;
   });
 
-  if (allFilled) {
-    confirmBtn.disabled = false;
-    confirmBtn.classList.add("enabled");
-  } else {
-    confirmBtn.disabled = true;
-    confirmBtn.classList.remove("enabled");
-  }
+  confirmBtn.disabled = !allFilled;
+  confirmBtn.classList.toggle("enabled", allFilled);
 }
 
-inputs.forEach(input => {
-  input.addEventListener("input", checkForm);
-  input.addEventListener("change", checkForm);
+form.querySelectorAll("input, select").forEach(field => {
+  field.addEventListener("input", checkForm);
+  field.addEventListener("change", checkForm);
 });
+const dateInput = form.querySelector('input[type="date"]');
 
+dateInput.addEventListener("change", () => {
+  dateInput.blur();
 });
-
+});
