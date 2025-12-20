@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reveals.forEach(el => revealObserver.observe(el));
 
-});
 
 const modal = document.getElementById("bookingModal");
 const serviceInput = document.getElementById("selectedService");
@@ -56,4 +55,5 @@ document.getElementById("bookingForm").addEventListener("submit", e => {
   e.preventDefault();
   alert("Demande de rendez-vous envoyée !");
   modal.style.display = "none";
+});
 });
