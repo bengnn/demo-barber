@@ -14,13 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
         if (activeLink) activeLink.classList.add("active");
       }
     });
-  }, {
-    rootMargin: "-40% 0px -40% 0px"
-  });
+  }, { rootMargin: "-40% 0px -40% 0px" });
 
   sections.forEach(section => sectionObserver.observe(section));
 
-  /* ===== FADE IN AU SCROLL ===== */
+  /* ===== FADE IN ===== */
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -31,37 +29,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
   reveals.forEach(el => revealObserver.observe(el));
 
+  /* ===== MODAL RDV ===== */
+  const modal = document.getElementById("bookingModal");
+  const serviceInput = document.getElementById("selectedService");
+  const closeBtn = document.querySelector(".close");
+  const form = document.getElementById("bookingForm");
 
-const modal = document.getElementById("bookingModal");
-const serviceInput = document.getElementById("selectedService");
-const closeBtn = document.querySelector(".close");
-
-/* CLICK SUR TARIFS */
-document.querySelectorAll(".card.price").forEach(card => {
-  card.addEventListener("click", () => {
-    const service = card.getAttribute("data-service");
-    serviceInput.value = service;
-    modal.style.display = "block";
+  document.querySelectorAll(".card.price").forEach(card => {
+    card.addEventListener("click", () => {
+      serviceInput.value = card.dataset.service;
+      modal.style.display = "block";
+    });
   });
+
+  closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", e => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+
+  /* ===== MODAL SUCCESS ===== */
+  const successModal = document.getElementById("successModal");
+  const closeSuccess = document.getElementById("closeSuccess");
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    modal.style.display = "none";
+    successModal.style.display = "block";
+  });
+
+  closeSuccess.addEventListener("click", () => {
+    successModal.style.display = "none";
+  });
+
 });
 
-
-/* FERMER */
-closeBtn.onclick = () => modal.style.display = "none";
-window.onclick = e => { if (e.target === modal) modal.style.display = "none"; };
-
-/* FAKE CONFIRMATION */
-const successModal = document.getElementById("successModal");
-const closeSuccess = document.getElementById("closeSuccess");
-
-form.addEventListener("submit", e => {
-  e.preventDefault();
-  modal.style.display = "none";
-  successModal.style.display = "block";
-});
-
-closeSuccess.addEventListener("click", () => {
-  successModal.style.display = "none";
-});
-
-});
