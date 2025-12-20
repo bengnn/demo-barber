@@ -135,3 +135,45 @@ footer {
 .section-anchor {
   scroll-margin-top: 100px;
 }
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  max-width: 400px;
+  margin: 10% auto;
+  padding: 30px;
+  position: relative;
+  text-align: center;
+}
+
+.modal-content input,
+.modal-content button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 22px;
+}
+.card.price {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card.price:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
