@@ -30,6 +30,23 @@ body {
   padding: 20px;
   list-style: none;
 }
+.modal-content button {
+  background: #bbb;
+  color: white;
+  border: none;
+  cursor: not-allowed;
+  transition: background 0.3s ease;
+}
+
+.modal-content button.enabled {
+  background: #111;
+  cursor: pointer;
+}
+
+.modal-content button.enabled:hover {
+  background: #000;
+}
+
 
 .nav-link {
   text-decoration: none;
