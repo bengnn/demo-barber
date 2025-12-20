@@ -63,6 +63,34 @@ document.addEventListener("DOMContentLoaded", () => {
   closeSuccess.addEventListener("click", () => {
     successModal.style.display = "none";
   });
+  
+const confirmBtn = document.getElementById("confirmBtn");
+const inputs = document.querySelectorAll(
+  "#bookingForm input, #bookingForm select"
+);
+
+function checkForm() {
+  let allFilled = true;
+
+  inputs.forEach(input => {
+    if (!input.value) {
+      allFilled = false;
+    }
+  });
+
+  if (allFilled) {
+    confirmBtn.disabled = false;
+    confirmBtn.classList.add("enabled");
+  } else {
+    confirmBtn.disabled = true;
+    confirmBtn.classList.remove("enabled");
+  }
+}
+
+inputs.forEach(input => {
+  input.addEventListener("input", checkForm);
+  input.addEventListener("change", checkForm);
+});
 
 });
 
