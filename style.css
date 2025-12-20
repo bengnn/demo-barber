@@ -177,3 +177,10 @@ footer {
   transform: translateY(-5px);
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid #ccc;
+}
