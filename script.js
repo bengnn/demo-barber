@@ -27,7 +27,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { rootMargin: "-40% 0px -40% 0px" });
 
-  sections.forEach(section => sectionObserver.observe(section));
+ sections.forEach(section => {
+  if (section) sectionObserver.observe(section);
+});
+
 
   /* ===== FADE IN ===== */
   const revealObserver = new IntersectionObserver(entries => {
@@ -36,7 +39,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.15 });
 
-  reveals.forEach(el => revealObserver.observe(el));
+reveals.forEach(el => {
+  if (el) revealObserver.observe(el);
+});
+
 
   /* ===== OUVERTURE MODAL ===== */
   document.querySelectorAll(".card.price").forEach(card => {
