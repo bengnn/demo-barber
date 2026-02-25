@@ -222,3 +222,13 @@ footer {
   opacity: 1;
   transform: none;
 }
+/* --- ADAPTATION POUR MOBILE (RESPONSIVE) --- */
+@media screen and (max-width: 768px) {
+  /* On cible le titre principal sur les petits écrans */
+  .hero h1 {
+    font-size: 40px; /* On réduit drastiquement la taille */
+    letter-spacing: 4px; /* On réduit l'espacement entre les lettres */
+    text-align: center; /* On s'assure qu'il est bien centré */
+    padding: 0 20px; /* On ajoute une petite marge de sécurité sur les bords */
+  }
+}
